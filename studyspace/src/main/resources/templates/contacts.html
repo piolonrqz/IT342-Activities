@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Google Contacts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: white;
+            color: white;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
+            background: #1269cc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin: 10px;
+        }
+        .btn:hover {
+            background: #0555b1;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background: white;
+            color: black;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        th, td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background: #4a90e2;
+            color: white;
+        }
+        tr:hover {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Google Contacts</h2>
+    <button class="btn" onclick="history.back()">Back</button>
+    
+    <!-- Redirect to Google Contacts -->
+    <a href="https://contacts.google.com/" target="_blank" class="btn">Manage Contacts</a>
+
+    <!-- Add Contact (Trigger API Call) -->
+    <button class="btn" onclick="addContact()">+ Add Contact</button>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Emails</th>
+                <th>Phones</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="contact : ${contacts}">
+                <td th:text="${contact.name}">Name</td>
+                <td>
+                    <ul>
+                        <li th:each="email : ${contact.emails}" th:text="${email}">Email</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li th:each="phone : ${contact.phones}" th:text="${phone}">Phone</li>
+                    </ul>
+                </td>
+                <td>
+                    <button class="btn" onclick="editContact()">Edit</button>
+                    <button class="btn" style="background: #e74c3c;" onclick="deleteContact()">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    function addContact() {
+        window.location.href = "/contacts/add"; // Redirect to your app's contact creation page
+    }
+
+    function editContact() {
+        alert("Edit contact functionality to be implemented.");
+    }
+
+    function deleteContact() {
+        alert("Delete contact functionality to be implemented.");
+    }
+</script>
+
+</body>
+</html>

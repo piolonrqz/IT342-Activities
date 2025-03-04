@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>User Info</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            width: auto;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+        }
+        h2 {
+            color: #333;
+        }
+        p {
+            color: #666;
+            font-size: 16px;
+        }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 16px;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #0056b3;
+        }
+        .logout-btn {
+            background: #dc3545;
+        }
+        .logout-btn:hover {
+            background: #a71d2a;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Welcome, <span th:text="${user.name}">User</span>!</h2>
+    <p>Email: <span th:text="${user.email}">user@example.com</span></p>
+    <a href="/contacts" class="btn">View Contacts</a>
+    <a href="/logout" class="btn logout-btn">Log Out</a>
+</div>
+
+</body>
+</html>

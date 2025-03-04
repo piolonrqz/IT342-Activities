@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Google Contacts</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: black;
+            text-align: center;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 20px;
+            font-size: 18px;
+            background: #ff6b6b;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #ff3b3b;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Welcome to Google Contacts Integration</h1>
+    <a th:href="@{/oauth2/authorization/google}" class="btn">Login with Google</a>
+</div>
+
+</body>
+</html>
